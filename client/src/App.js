@@ -1,10 +1,13 @@
+import MainNav from "./components/MainNav";
+import Home from "./pages/Home";
+import Footer from "./components/Footer"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Hello world
-      </header>
+     <MainNav />
+     <Home />
+     <Footer />
     </div>
   );
 }
