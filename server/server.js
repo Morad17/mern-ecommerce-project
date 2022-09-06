@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import connectDatabase from "./config/MongoDB.js"
 import GetData from "./GetData.js"
 import productRoute from "./Routes/ProductRoutes.js"
+import { errorHandler, notFound } from "./Middleware/Errors.js"
 
 
 dotenv.config()
@@ -12,6 +13,11 @@ const app = express()
 
 app.use("/api/get", GetData)
 app.use("/api/products", productRoute)
+
+// Error Handler //
+app.use(notFound)
+app.use(errorHandler)
+
 
 app.get("/", (req,res)=> {
     res.send("API is running")
