@@ -11,7 +11,10 @@ dotenv.config()
 connectDatabase()
 const app = express()
 
+//Post Data 
 app.use("/api/get", GetData)
+
+//Find Product
 app.use("/api/products", productRoute)
 
 // Error Handler //
