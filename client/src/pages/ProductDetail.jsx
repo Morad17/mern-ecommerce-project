@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { listProductDetails } from "../Redux/Actions/ProductActions"
 
 const ProductDetail = ({ match }) => {
-    const [product, setProduct] = useState({})
+    const dispatch = useDispatch()
+    const productId = match.params.id
+    const productDetails = useSelector((state)=> state.productDetails)
+    const  {loading, error, product} = productDetails
 
     useEffect( ()=>{
-        const getProduct = async() => {
-            const {data} = await axios.get(`/api/products/${match.params.id}`)
-            setProduct(data)
-        }
-        getProduct()
-    }, [match])
+        dispatch(listProductDetails(productId))
+    }, [dispatch,productId])
   return (
     <>
         <div className="product-detail-container">
-            <div className="">{product.name}</div>
+            <div className="">{product.name}name</div>
             <img src={product.image} alt={product.name} />
         </div>
     </>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { axios } from "axios"
@@ -15,7 +15,7 @@ const Home = () => {
     <div>
         <h1>Welcome to My Shop</h1>
         {
-            loading ? (<p>Loading...</p>) : error ? (<p>Error : {error}</p>)
+            loading ? (<p>Loading Spinner...</p>) : error ? (<p>Error : {error}</p>)
             : (<>
                 {
                     products.map((product)=>{
