@@ -14,8 +14,16 @@ const ProductDetail = ({ match }) => {
   return (
     <>
         <div className="product-detail-container">
-            <div className="">{product.name}name</div>
-            <img src={product.image} alt={product.name} />
+            {
+              loading ? ( <p>Loading...</p> ): error ? (<p>Error {error}</p> ) :
+              (
+                <div className="">
+                  <div className="">{product.name}name</div>
+                  <img src={product.image} alt={product.name} />
+                </div>
+              )
+            } 
+            
         </div>
     </>
   )

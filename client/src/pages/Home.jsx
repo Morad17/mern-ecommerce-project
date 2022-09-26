@@ -20,7 +20,12 @@ const Home = () => {
                 {
                     products.map((product)=>{
                     return(
-                    <div className="">{product.name}</div>
+                        <div className="" key={product._id}>
+                            <Link to={`/product/${product._id}`}>
+                                {product.name}
+                            </Link>
+                            
+                        </div>
                         )
                         
                     })
